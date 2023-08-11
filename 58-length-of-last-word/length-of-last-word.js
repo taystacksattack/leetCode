@@ -18,16 +18,27 @@
 // };
 
 
+// var lengthOfLastWord = function(s) {
+//     let count = 0
+//     // let words = s.split("")
+//     for (let i = s.length - 1; i >= 0; i--){
+//         let char = s[i]
+//         let next = s[i-1]
+//         // console.log(char)
+//         if (char === " ") continue
+//         count++
+//         if (next === " ") break
+//     }
+//     return count
+// }
+
 var lengthOfLastWord = function(s) {
-    let count = 0
-    // let words = s.split("")
-    for (let i = s.length - 1; i >= 0; i--){
-        let char = s[i]
-        let next = s[i-1]
-        // console.log(char)
-        if (char === " ") continue
-        count++
-        if (next === " ") break
+    let trimmed = s.trim()
+    // console.log(trimmed)
+    // console.log("here is that space", trimmed[trimmed.lastIndexOf(' ')])
+    // return (trimmed.slice(trimmed[trimmed.lastIndexOf(' ')])).length
+    if (trimmed.includes(' ')){
+        return (trimmed.slice(trimmed.lastIndexOf(' '))).length -1
     }
-    return count
+    return trimmed.length
 }
