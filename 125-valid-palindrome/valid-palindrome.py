@@ -6,13 +6,10 @@ class Solution:
 
         return adjusted string == adjusted string reversed
         '''
-        dj_str = ""
+        dj_str = ''
 
-        for val in s:
-            if val.isalpha() or val.isnumeric():
-                dj_str += val.upper()
-        
+        for char in s:
+            if char.isalpha() or char.isnumeric():
+                dj_str += char.upper()
         print(dj_str)
-        # if len(dj_str) <= 1: return False             
         return dj_str == dj_str[::-1]
-        
