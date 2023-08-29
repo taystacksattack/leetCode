@@ -1,20 +1,35 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
+        # left = 0
+        # right = len(nums)-1
+        # while left <= right:
+        #     mid = (left + right) // 2 
+        #     #mid = left + (right-left) // 2
+        #     #using (right-left) means it uses integer division - avoids integer overflow rather than (right - left) //2
+
+        #     if nums[mid] == target:
+        #         return mid
+        #     elif  nums[mid] > target:
+        #         right = mid - 1
+        #     else:
+        #         left = mid + 1
+
+        # return -1
+
         left = 0
-        right = len(nums)-1
+        right = len(nums) - 1
+
         while left <= right:
-            mid = (left + right) // 2 
-            #mid = left + (right-left) // 2
-            #using (right-left) means it uses integer division - avoids integer overflow rather than (right - left) //2
+            mid = (left + right) // 2
 
             if nums[mid] == target:
                 return mid
-            elif  nums[mid] > target:
+            if nums[mid] > target:
                 right = mid - 1
-            else:
+            if nums[mid] < target:
                 left = mid + 1
-
-        return -1
+        
+        return -1 #return False
 
 
 # here it is recursively:
