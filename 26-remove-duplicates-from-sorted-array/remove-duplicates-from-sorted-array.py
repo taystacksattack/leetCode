@@ -15,16 +15,49 @@ class Solution:
 
         '''
 
-        lp = 0
-        rp = 1
 
-        while lp < len(nums) - 1:
-            if nums[lp] == nums[rp]:
-                nums.pop(rp)
-                continue
-            if rp == len(nums)-1:
-                lp += 1
-                rp = lp + 1
-            else: rp += 1
+        # This works well if the array is not sorted!!!!
+        # lp = 0
+        # rp = 1
+
+        # while lp < len(nums) - 1:
+        #     if nums[lp] == nums[rp]:
+        #         nums.pop(rp)
+        #         continue
+        #     if rp == len(nums)-1:
+        #         lp += 1
+        #         rp = lp + 1
+        #     else: rp += 1
         
-        return len(nums)
+        # return len(nums)
+
+
+        # this is BETTER
+
+        # replace = 1
+        # for i in range(len(nums)):
+        #     # print("i",i)
+        #     # print("replace",replace)
+        #     if nums[i] == nums[i+1]:
+        #         popped = nums.pop(replace)
+        #         print("popped",popped)
+        #         print("nums",nums)
+        #         print('length', len(nums))
+        #         continue
+        #     replace += 1
+        
+        # # return print("here's nums",nums)
+        # return len(nums)
+
+
+        if not nums:
+            return 0
+
+        replace = 1
+        for i in range(1, len(nums)):
+            if nums[i] != nums[i - 1]:
+                nums[replace] = nums[i]
+                replace += 1
+        
+        return replace
+            
