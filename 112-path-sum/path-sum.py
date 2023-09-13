@@ -22,11 +22,11 @@ class Solution:
 
         '''
         if not root: return False
-        sum, stack = 0 , [[root, 0]]
+        stack = [[root, 0]]
 
         while stack:
             currentNode, currentSum = stack.pop()
-            print("here go that current sum", currentSum)
+            # print("here go that current sum", currentSum)
 
             if currentNode.left: stack.append([currentNode.left, currentSum + currentNode.val])
             if currentNode.right: stack.append([currentNode.right, currentSum + currentNode.val])
